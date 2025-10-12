@@ -1,0 +1,21 @@
+while task.wait() do
+	if game.Players.LocalPlayer.Character ~= nil then
+	  local char = game.Players.LocalPlayer.Character
+		if char:FindFirstChild("HumanoidRootPart") then
+			local humroot = char:FindFirstChild("HumanoidRootPart")
+			if humroot:FindFirstChild("DashVelocity") then
+				local velo = humroot:FindFirstChild("DashVelocity")
+			    velo.MaxForce = Vector3.new(999999999999,0,999999999999)*252
+			    print(velo.Velocity)
+			    print(velo.MaxForce)
+			    print(velo.P)
+			elseif humroot:FindFirstChild("FrontDashVelocity") then
+				local velo = humroot:FindFirstChild("FrontDashVelocity")
+			    velo.MaxForce = Vector3.new(999999999999,0,999999999999)*252
+			    print(velo.Velocity)
+			    print(velo.MaxForce)
+			    print(velo.P)
+			end
+		end
+ 	end
+end
