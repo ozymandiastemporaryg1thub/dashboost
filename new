@@ -30,20 +30,12 @@ while task.wait() do
 							else
 								if hum:GetState() ~= Enum.HumanoidStateType.Physics then
 									local velo = humroot:FindFirstChild("KnockbackVelocity")
-									velo.Velocity = velo.Velocity*1.045
+									velo.Velocity = velo.Velocity*1.0275
 									print(velo.Velocity)
 									print(velo.MaxForce)
 									print(velo.P)
 								end
 							end
-						end
-					elseif humroot:FindFirstChild("RollVelocity") then
-						if hum.FloorMaterial ~= Enum.Material.Air then
-							local velo = humroot:FindFirstChild("RollVelocity")
-							velo.Velocity = velo.Velocity*1.075
-							print(velo.Velocity)
-							print(velo.MaxForce)
-							print(velo.P)
 						end
 					end
 				end
