@@ -1,0 +1,43 @@
+local char = nil
+local plr = game.Players.LocalPlayer
+local sgui = game.StarterGui
+
+char = plr.Character
+
+local root = nil
+
+plr.CharacterAdded:Connect(function(c)
+	char = c
+	root = char:WaitForChild("HumanoidRootPart")
+	
+	sgui:SetCore("SendNotification", {
+		Title = "Dash-boosters made by Ozymandiasssssssss",
+		Text = "Dashes are now boosted.",
+		Duration = 3,
+		Callback = nil,
+		Button1 = "Close",
+	})
+	
+	root.ChildAdded:Connect(function(ii)
+	    print(ii)
+	    local i = root:WaitForChild(ii.Name)
+		if i:IsA("BodyVelocity") then
+			if i.Name == "DashVelocity" then
+				i.MaxForce = Vector3.new(250000,0,250000)
+				print("dash has been boosted")
+			elseif i.Name == "FrontDashVelocity" then
+				i.MaxForce = Vector3.new(250000,0,250000)
+				print("front dash has been boosted")
+			end
+		end
+		if root:FindFirstChild("FrontDashVelocity") then
+		    local fd = root:FindFirstChild("FrontDashVelocity")
+            fd.MaxForce = Vector3.new(250000,0,250000)
+			print("front dash has been boosted")
+		end
+	end)
+	
+	print(c)
+end)
+
+
