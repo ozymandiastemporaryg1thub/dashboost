@@ -6,6 +6,14 @@ char = plr.Character
 
 local root = nil
 
+sgui:SetCore("SendNotification", {
+		Title = "[Notice]",
+		Text = "Please reset to boost dashes.",
+		Duration = 3,
+		Callback = nil,
+		Button1 = "Close",
+	})
+
 plr.CharacterAdded:Connect(function(c)
 	char = c
 	root = char:WaitForChild("HumanoidRootPart")
